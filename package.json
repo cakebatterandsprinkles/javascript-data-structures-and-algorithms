@@ -1,0 +1,22 @@
+{
+  "name": "javascript-data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#readme",
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}
