@@ -20,9 +20,6 @@ describe("Add up numbers to the number given", () => {
 
 describe("Calculates the execution time", () => {
   it(" of a given function", () => {
-    let V1time = 0;
-    let V2time = 0;
-
     calculateTime(addUpToV2, 100);
     calculateTime(addUpToV1, 100);
 
