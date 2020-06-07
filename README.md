@@ -207,4 +207,63 @@ Big O's of array methods:
 - splice -> O(n)
 - sort -> O(n*log(n))
 - forEach/map/filter/reduce -> O(n)
- 
+
+## Problem Solving: Approach and Patterns
+
+(•ᴗ•) **Problem Solving Strategies**
+
+**_What is an algorithm?_**
+
+An algorithm is a sequence of well-defined instructions to solve a specific problem or accomplish a certain task. 
+
+**_Problem Solving Steps_**
+
+1. Understand the problem
+   
+   To make sure you understand the problem correctly, ask yourself: 
+   - Can you restate the problem in your own words?
+   - What are the inputs that go into the problem?
+     - integers?
+     - floats?
+     - very big numbers?
+     - how many inputs?
+     - strings?
+     - arrays? etc.
+   - What are the outputs that should come from the solution of that problem?
+     - integer?
+     - float?
+     - string?
+     - array? etc.
+   - Can the outputs be determined from the inputs? In other words, do you have enough information to solve this problem?
+     - If the problem needs two inputs and you get one, what should you do? Return undefined? Null? Give inputs default values?
+   - How should I label the important pieces of data that are part of the problem? (What is the terminology that you should use, what should you call them?)
+
+2. Explore Concrete Examples
+   
+   Coming up with examples can help you understand the problem better. 
+   - Write down or think about two or three examples with an input and the output.
+   - Progress to more complex examples
+   - Explore examples with empty inputs
+   - Explore examples with invalid inputs
+
+    **Example**
+    Task: Write a function which takes in a string and returns counts of each character in the string
+    ```js
+    charCount('aaaaaa'); // {a:4}
+    charCount('hello'); // {h:1, e:1, l:2, o:1}
+    // Should we include the characters that are bot in there? Like {a:1, b:0, c:0}
+    // If we enter a string that includes spaces and numbers, should we account for them?
+
+    ```
+   
+3. Break it down
+   
+4. Solve or Simplify
+   
+5. Refactor your solution
+   
+
+ ## Resources:
+
+ 1. "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_ 
+ 2. "How to Solve It - A New Aspect of Mathematical Method" by _G. Polya_
