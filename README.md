@@ -93,6 +93,9 @@ O(500) will simplify to O(1) -> O(1) means constant runtime!
 
 (•ᴗ•) **Summing up Big O**
 
+Big O notation can give us an understanding of the time and space complexity of an algorithm.
+Big O doesn't care about precision, it cares about general trends.
+The time and space complexity measured by Big O depends only on the algorithm, not the hardware used to run the algorithm. So the actual runtime of an algorithm will change between computers with different hardware, but the general trend will be the same.
 n: simple operations a computer has to do for that algorithm
 The big O of an algorithm is a function of "n" => O(f(n))
 
@@ -162,3 +165,46 @@ function double(arr) {
 
 In this example as the input length approaches infinity, the length of the array will be increasing directly proportionate to the length of the given array.
 This means the big O for space complexity for this algorithm is O(n).
+
+**_What is a logarithm? A very very basic explanation:_**
+
+Simply put, a logarithm is the inverse of exponentiation.
+
+log2(8) = 3  ----->  2^3 = 8
+log2(value) = exponent -----> 2^exponent = value
+
+(•ᴗ•) **Analyzing Performance of Arrays and Objects**
+
+_An object_ is an unordered data structure consisting key-value pairs.
+
+Big O of actions related to objects:
+- Insertion -> O(1)
+- Removal -> O(1)
+- Access -> O(1)
+- Search -> O(n)
+
+Big O's of object methods:
+- Object.keys -> O(n)
+- Object.values -> O(n)
+- Object.entries -> O(n)
+- hasOwnProperty -> O(1)
+
+_An array_ is an ordered data structure consisting values and each value has an index number that corresponds to it.
+
+Big O of actions related to arrays:
+- Insertion -> If you are inserting to the end of the array (push) it is O(1). If you insert an item to the beginning of an array (unshift), it becomes O(n), because you will be changing the indices of every item on that array.
+- Removal -> If you are removing from the end of the array (pop) it is O(1). If you remove an item from the beginning of an array (shift), it becomes O(n), because you will be changing the indices of every item on that array.
+- Access -> O(1)
+- Search -> O(n)
+
+Big O's of array methods:
+- push -> O(1)
+- pop -> O(1)
+- shift -> O(n)
+- unshift -> O(n)
+- concat -> O(n)
+- slice -> O(n)
+- splice -> O(n)
+- sort -> O(n*log(n))
+- forEach/map/filter/reduce -> O(n)
+ 
