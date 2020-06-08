@@ -216,6 +216,13 @@ Big O's of array methods:
 
 An algorithm is a sequence of well-defined instructions to solve a specific problem or accomplish a certain task. 
 
+**_How do you improve your problem solving abilities?_**
+
+1. Understand the steps that lead to problem solving.
+2. Master common problem solving patterns.
+
+(•̀ᴗ•́)و ̑̑ _Let's explore both of them!_
+
 **_Problem Solving Steps_**
 
 1. Understand the problem
@@ -348,6 +355,75 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
       }
 
     ```
+
+**_Problem Solving Patterns_**
+
+1. **Frequency Counter Pattern**
+   
+   This pattern uses objects or sets to collect values/frequency of values to avoid nested loops or O(n^2) operations with arrays and strings.
+   This is useful when you have multiple inputs for an algorithm and you are comparing theses inputs with each other.
+
+  **Example**
+  Write a function called isMultiplied which accepts two arrays. This function should return true if every value in the array has a correspoding value that is multiplied by 2 in the second array given. The frequency of values must be the same.
+
+  ```js
+  isMultiplied([1, 2, 3], [4, 2, 6]); //true
+  isMultiplied([1, 2, 3], [4, 9]); //false
+  isMultiplied([2, 2, 3], [6, 6, 4]); //false (frequency gone wrong)
+  ```
+
+  First, true but not the least effective solution:
+
+  ```js
+  // First solution:
+  function isMultiplied => (arr1, arr2) = {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+    for (let i = 0; i < arr1.length; i++) {
+      let correctIndex = arr2.indexOf(arr1[i] * 2);
+      if (correctIndex === -1) {
+        return false;
+      } else {
+        arr2.splice(correctIndex, 1)
+      }
+    }
+    return true;
+  }
+  ```
+  The first solution is an ineffective solution because it has O(n^2). Not just the for loop, but indexOf also loops inside the second array to find the correctIndex, so it has nested loops.
+
+  Let's try it without the nested loops:
+
+  ```js
+  // Second solution:
+  function isMultiplied => (arr1, arr2) = {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+    let frequencyCounter1 = {};
+    let frequencyCounter2 = {};
+    for (let val of arr1) {
+      frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+    }
+    for (let val of arr2) {
+      frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+    }
+    for(let key in frequencyCounter1) {
+      if(!(key * 2) in frequencyCounter2) {
+        return false;
+      }
+      if (frequencyCounter2[key * 2] !== frequencyCounter1[key]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  ```
+
+
+
+
 
 
  ## Resources:
