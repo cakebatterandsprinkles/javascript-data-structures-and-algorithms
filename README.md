@@ -253,15 +253,102 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
     charCount('hello'); // {h:1, e:1, l:2, o:1}
     // Should we include the characters that are bot in there? Like {a:1, b:0, c:0}
     // If we enter a string that includes spaces and numbers, should we account for them?
-
+    // Do we store uppercases and lowercases separately? Do we ignore casing?
     ```
    
 3. Break it down
    
+   - Explicitly write out the steps you need to take. Make comments to guide yourself through the solution, like little steps. (Pseudocode, yay!) This forces you to think about your code before you write it so you are not just winging it.
+   - This also helps you to clear any misunderstandings before you dive in.
+
+    Example at the previous section continued:
+    ```js
+
+      // We decided to count the numbers as individual characters, omit spaces and other special characters and lowercase the entire string.
+
+      function charCount(str) {
+        // create an  object to return at the end of this function
+        // loop over the string
+          // if a character is a number/letter AND a key in the object, add one to count.
+          // if a character is a number/letter AND not in our object, add it and set it's value to 1.
+          // if a character is something else (space, question mark, etc.) don't do anything.
+        // return the object
+      }
+    ```
+   
 4. Solve or Simplify
    
-5. Refactor your solution
+    - Solve the problem if you can. 
+    - Otherwise, find the main difficulty in what you're trying to do.
+    - Temporarily ignore that part.
+    - Then incorporate that difficult part back in.
+  
+      Example at the previous section continued:
+    ```js
+      function charCount(str) {
+        // create an  object to return at the end of this function
+        var result = {};
+        // loop over the string
+        for (let  i = 0; i < str.length; i++) {
+          let char = str[i].toLowerCase();
+          // if a character is something else (space, question mark, etc.) don't do anything.
+          // if a character is a number/letter AND a key in the object, add one to count.
+          // if a character is a number/letter AND not in our object, add it and set it's value to 1.
+          // For checking if a character is alphanumeric, you can use ASCII codes, regular expressions or predefined arrays.
+          if(/[a-z0-9]/.test(char)){
+            if( result[char] > 0){
+              result[char]++;
+            } else {
+              result[char] = 1;
+            }
+          }
+        }
+        // return the object
+        return result;
+      }
+    ```
    
+5. Refactor your solution
+
+  There is rarely a single solution to a problem.
+    - Can you talk about your code without any prroblems?
+    - Can you get to the result differently?
+    - Can you understand your code at a glance?
+    - Can you use the result/method for solving another problem?
+    - Can you improve the performance of your code? (You can identify poorly performing things, like nested loops, and try to avoid those.)
+    - Can you think of other ways to make your code better? (If you are working for a company, does your code follow company guidelines? Does it follow the best practices of the language? Is the spacing consistent?)
+    - How have other people solved this problem?
+  
+    _What can we refactor in this code?_
+      - We can do a for-of loop to avoid working with i.
+      - Conditionals can be done in a single line.
+      - Although regular expressions are a good way of finding certain patterns (like a credit card number, phone number, addresses, url, etc.) in a given input, they have a disadvantage: the performance of regular expressions can vary depending on the browser you are using. So it might be a bit better to use ASCII codes. Point proven [here](https://jsperf.com/alphanumeric-charcode-vs-regexp).
+
+      Example at the previous section refactored:
+    ```js
+      function charCount(str) {
+        var result = {};
+        for (let  char of str) {
+          if(isAlphaNumeric(char)){
+            char = char.toLowerCase();
+            result[char] = ++result[char] || 1;
+          }
+        }
+        return result;
+      }
+
+      function isAlphaNumeric(char) {
+          const code = char.charCodeAt(0);
+          if (!(code > 47 && code < 58) && // numeric (0-9)
+              !(code > 64 && code < 91) && // upper alpha (A-Z)
+              !(code > 96 && code < 123)) { // lower alpha (a-z)
+            return false;
+          }
+        return true;
+      }
+
+    ```
+
 
  ## Resources:
 
