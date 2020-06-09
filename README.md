@@ -13,7 +13,7 @@ Big O Notation is a convenient way to describe the performance or complexity of 
 (•ᴗ•) **Why do we need something like this?**
 
 Let's say, there are multiple valid solutions to a problem, and each of them uses a totally different approach. How do we decide which one is **better?**
-Simply put, this is what the Big O Notation is all about. It is a way of comparing code and it's performance to other pieces of code.
+Simply put, this is what the Big O Notation is all about. It is a way of comparing code and its performance to other pieces of code.
 
 - Provides us a precise vocabulary to talk about our code's performance.
 - Useful for discussing trade-offs between different approaches.
@@ -119,7 +119,7 @@ From best to worse: O(1) (_best!_ )-> O(logn) (_good!_ ) -> O(n) (_fair!_ ) -> O
 
 **_Time Complexity_**
 
-How does the runtime of an algorithm changes as the size of it's input increases?
+How does the runtime of an algorithm changes as the size of its input increases?
 
 **_Space Complexity_** (Space = memory)
 
@@ -277,7 +277,7 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
         // create an  object to return at the end of this function
         // loop over the string
           // if a character is a number/letter AND a key in the object, add one to count.
-          // if a character is a number/letter AND not in our object, add it and set it's value to 1.
+          // if a character is a number/letter AND not in our object, add it and set its value to 1.
           // if a character is something else (space, question mark, etc.) don't do anything.
         // return the object
       }
@@ -300,7 +300,7 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
           let char = str[i].toLowerCase();
           // if a character is something else (space, question mark, etc.) don't do anything.
           // if a character is a number/letter AND a key in the object, add one to count.
-          // if a character is a number/letter AND not in our object, add it and set it's value to 1.
+          // if a character is a number/letter AND not in our object, add it and set its value to 1.
           // For checking if a character is alphanumeric, you can use ASCII codes, regular expressions or predefined arrays.
           if(/[a-z0-9]/.test(char)){
             if( result[char] > 0){
@@ -421,9 +421,67 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
   }
   ```
 
+  The second solution is more effective than the first one, because it just has 3 subsequent loops (but not a nested one!) and has O(3n), which will simplify as O(n).
 
+  **Frequency Counter Exercise 1: Anagram**
 
+  Write a function that takes two strings to determine if the second string is an anagram of the first. (An anagram is a word, phrase or name formed by rearranging the letters of another. Example: 'cinema' and 'iceman' are anagrams.)
 
+  ```js
+  // Solution 1: (Has a time complexity of O(n))
+  function isAnagram(str1, str2) {
+    // determine if they have the same length, if not, return false.
+    if (str1.length !== str2.length) {
+      return false;
+    }
+    // make a frequency counter for str1
+    let frequencyCounter1 = {};
+    let frequencyCounter2 = {};
+    for (let letter of str1) {
+      frequencyCounter1[letter] = (frequencyCounter1[letter] || 0) + 1;
+    }
+    // make a frequency counter for str2
+    for (let letter of str2) {
+      frequencyCounter2[letter] = (frequencyCounter2[letter] || 0) + 1;
+    }
+    // loop over frequencycounter1 to see if it has the same amount of every letter in frequencyCounter2, if not return false
+    for (let key in frequencyCounter1) {
+      if(!frequencyCounter2[key]) {
+        return false;
+      }
+      if(frequencyCounter1[key] !== frequencyCounter2[key]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Solution 2: (Also has a time complexity of O(n))
+  function isAnagram(str1, str2) {
+    // determine if they have the same length, if not, return false.
+    if (str1.length !== str2.length) {
+      return false;
+    }
+    // make a frequency counter for str1
+    let frequencyCounter = {};
+    for (let letter of str1) {
+      frequencyCounter[letter] ? frequencyCounter[letter] += 1 : frequencyCounter[letter] = 1;
+    }
+
+    // loop over str2, see if you can find all the letters in str2 as keys in frequencyCounter object. If it is there, subtract 1 from its value.
+    for (let key of str2) {
+      if(!frequencyCounter[key]) {
+        return false;
+      } else {
+        frequencyCounter[key] -= 1;
+      }
+    }
+    return true;
+  }
+
+  ```
+
+  **Frequency Counter Exercise 2: Anagram**
 
 
  ## Resources:
