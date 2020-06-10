@@ -1,25 +1,16 @@
-const {
-  addUpToV1,
-  addUpToV2,
-  calculateTime,
-} = require("../Big O Notation/bigO");
+const { addUpToV1, addUpToV2, calculateTime } = require("./bigO");
 
-describe("Add up numbers to the number given", () => {
-  it("calculates that 1 + ... + n", () => {
+describe("Adds up numbers to the number given", () => {
+  test("it should calculate 1 + ... + n", () => {
     expect(addUpToV1(20)).toEqual(210);
     expect(addUpToV1(10000)).toEqual(5000 * 10001);
-  });
-});
-
-describe("Add up numbers to the number given", () => {
-  it("calculates that 1 + ... + n", () => {
     expect(addUpToV2(20)).toEqual(210);
     expect(addUpToV2(10000)).toEqual(5000 * 10001);
   });
 });
 
-describe("Calculates the execution time", () => {
-  it(" of a given function", () => {
+describe("Execution time calculating function", () => {
+  test("it should calculate the execution time of a given function", () => {
     calculateTime(addUpToV2, 100);
     calculateTime(addUpToV1, 100);
 

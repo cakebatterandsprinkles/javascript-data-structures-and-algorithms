@@ -170,7 +170,7 @@ This means the big O for space complexity for this algorithm is O(n).
 
 Simply put, a logarithm is the inverse of exponentiation.
 
-log2(8) = 3  ----->  2^3 = 8
+log2(8) = 3 -----> 2^3 = 8
 log2(value) = exponent -----> 2^exponent = value
 
 (•ᴗ•) **Analyzing Performance of Arrays and Objects**
@@ -178,12 +178,14 @@ log2(value) = exponent -----> 2^exponent = value
 _An object_ is an unordered data structure consisting key-value pairs.
 
 Big O of actions related to objects:
+
 - Insertion -> O(1)
 - Removal -> O(1)
 - Access -> O(1)
 - Search -> O(n)
 
 Big O's of object methods:
+
 - Object.keys -> O(n)
 - Object.values -> O(n)
 - Object.entries -> O(n)
@@ -192,12 +194,14 @@ Big O's of object methods:
 _An array_ is an ordered data structure consisting values and each value has an index number that corresponds to it.
 
 Big O of actions related to arrays:
+
 - Insertion -> If you are inserting to the end of the array (push) it is O(1). If you insert an item to the beginning of an array (unshift), it becomes O(n), because you will be changing the indices of every item on that array.
 - Removal -> If you are removing from the end of the array (pop) it is O(1). If you remove an item from the beginning of an array (shift), it becomes O(n), because you will be changing the indices of every item on that array.
 - Access -> O(1)
 - Search -> O(n)
 
 Big O's of array methods:
+
 - push -> O(1)
 - pop -> O(1)
 - shift -> O(n)
@@ -205,7 +209,7 @@ Big O's of array methods:
 - concat -> O(n)
 - slice -> O(n)
 - splice -> O(n)
-- sort -> O(n*log(n))
+- sort -> O(n\*log(n))
 - forEach/map/filter/reduce -> O(n)
 
 ## Problem Solving: Approach and Patterns
@@ -214,7 +218,7 @@ Big O's of array methods:
 
 **_What is an algorithm?_**
 
-An algorithm is a sequence of well-defined instructions to solve a specific problem or accomplish a certain task. 
+An algorithm is a sequence of well-defined instructions to solve a specific problem or accomplish a certain task.
 
 **_How do you improve your problem solving abilities?_**
 
@@ -226,8 +230,9 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
 **_Problem Solving Steps_**
 
 1. Understand the problem
-   
-   To make sure you understand the problem correctly, ask yourself: 
+
+   To make sure you understand the problem correctly, ask yourself:
+
    - Can you restate the problem in your own words?
    - What are the inputs that go into the problem?
      - integers?
@@ -246,86 +251,82 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
    - How should I label the important pieces of data that are part of the problem? (What is the terminology that you should use, what should you call them?)
 
 2. Explore Concrete Examples
-   
-   Coming up with examples can help you understand the problem better. 
+
+   Coming up with examples can help you understand the problem better.
+
    - Write down or think about two or three examples with an input and the output.
    - Progress to more complex examples
    - Explore examples with empty inputs
    - Explore examples with invalid inputs
 
-    **Example**
-    Task: Write a function which takes in a string and returns counts of each character in the string
-    ```js
-    charCount('aaaaaa'); // {a:4}
-    charCount('hello'); // {h:1, e:1, l:2, o:1}
-    // Should we include the characters that are bot in there? Like {a:1, b:0, c:0}
-    // If we enter a string that includes spaces and numbers, should we account for them?
-    // Do we store uppercases and lowercases separately? Do we ignore casing?
-    ```
-   
+     **Example**
+     Task: Write a function which takes in a string and returns counts of each character in the string
+
+   ```js
+   charCount("aaaaaa"); // {a:4}
+   charCount("hello"); // {h:1, e:1, l:2, o:1}
+   // Should we include the characters that are bot in there? Like {a:1, b:0, c:0}
+   // If we enter a string that includes spaces and numbers, should we account for them?
+   // Do we store uppercases and lowercases separately? Do we ignore casing?
+   ```
+
 3. Break it down
-   
+
    - Explicitly write out the steps you need to take. Make comments to guide yourself through the solution, like little steps. (Pseudocode, yay!) This forces you to think about your code before you write it so you are not just winging it.
    - This also helps you to clear any misunderstandings before you dive in.
 
-    Example at the previous section continued:
-    ```js
+   Example at the previous section continued:
 
-      // We decided to count the numbers as individual characters, omit spaces and other special characters and lowercase the entire string.
+   ```js
+   // We decided to count the numbers as individual characters, omit spaces and other special characters and lowercase the entire string.
 
-      function charCount(str) {
-        // create an  object to return at the end of this function
-        // loop over the string
-          // if a character is a number/letter AND a key in the object, add one to count.
-          // if a character is a number/letter AND not in our object, add it and set its value to 1.
-          // if a character is something else (space, question mark, etc.) don't do anything.
-        // return the object
-      }
-    ```
-   
+   function charCount(str) {
+     // create an  object to return at the end of this function
+     // loop over the string
+     // if a character is a number/letter AND a key in the object, add one to count.
+     // if a character is a number/letter AND not in our object, add it and set its value to 1.
+     // if a character is something else (space, question mark, etc.) don't do anything.
+     // return the object
+   }
+   ```
+
 4. Solve or Simplify
-   
-    - Solve the problem if you can. 
-    - Otherwise, find the main difficulty in what you're trying to do.
-    - Temporarily ignore that part.
-    - Then incorporate that difficult part back in.
-  
-      Example at the previous section continued:
-    ```js
-      function charCount(str) {
-        // create an  object to return at the end of this function
-        var result = {};
-        // loop over the string
-        for (let  i = 0; i < str.length; i++) {
-          let char = str[i].toLowerCase();
-          // if a character is something else (space, question mark, etc.) don't do anything.
-          // if a character is a number/letter AND a key in the object, add one to count.
-          // if a character is a number/letter AND not in our object, add it and set its value to 1.
-          // For checking if a character is alphanumeric, you can use ASCII codes, regular expressions or predefined arrays.
-          if(/[a-z0-9]/.test(char)){
-            if( result[char] > 0){
-              result[char]++;
-            } else {
-              result[char] = 1;
-            }
-          }
-        }
-        // return the object
-        return result;
-      }
-    ```
-   
+
+   - Solve the problem if you can.
+   - Otherwise, find the main difficulty in what you're trying to do.
+   - Temporarily ignore that part.
+   - Then incorporate that difficult part back in.
+
+     Example at the previous section continued:
+
+   ```js
+   function charCount(str) {
+     // create an  object to return at the end of this function
+     var result = {};
+     // loop over the string
+     for (let i = 0; i < str.length; i++) {
+       let char = str[i].toLowerCase();
+       // if a character is something else (space, question mark, etc.) don't do anything.
+       // if a character is a number/letter AND a key in the object, add one to count.
+       // if a character is a number/letter AND not in our object, add it and set its value to 1.
+       // For checking if a character is alphanumeric, you can use ASCII codes, regular expressions or predefined arrays.
+       if (/[a-z0-9]/.test(char)) {
+         if (result[char] > 0) {
+           result[char]++;
+         } else {
+           result[char] = 1;
+         }
+       }
+     }
+     // return the object
+     return result;
+   }
+   ```
+
 5. Refactor your solution
 
-  There is rarely a single solution to a problem.
-    - Can you talk about your code without any prroblems?
-    - Can you get to the result differently?
-    - Can you understand your code at a glance?
-    - Can you use the result/method for solving another problem?
-    - Can you improve the performance of your code? (You can identify poorly performing things, like nested loops, and try to avoid those.)
-    - Can you think of other ways to make your code better? (If you are working for a company, does your code follow company guidelines? Does it follow the best practices of the language? Is the spacing consistent?)
-    - How have other people solved this problem?
-  
+There is rarely a single solution to a problem. - Can you talk about your code without any prroblems? - Can you get to the result differently? - Can you understand your code at a glance? - Can you use the result/method for solving another problem? - Can you improve the performance of your code? (You can identify poorly performing things, like nested loops, and try to avoid those.) - Can you think of other ways to make your code better? (If you are working for a company, does your code follow company guidelines? Does it follow the best practices of the language? Is the spacing consistent?) - How have other people solved this problem?
+
     _What can we refactor in this code?_
       - We can do a for-of loop to avoid working with i.
       - Conditionals can be done in a single line.
@@ -359,160 +360,164 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
 **_Problem Solving Patterns_**
 
 1. **Frequency Counter Pattern**
-   
+
    This pattern uses objects or sets to collect values/frequency of values to avoid nested loops or O(n^2) operations with arrays and strings.
    This is useful when you have multiple inputs for an algorithm and you are comparing theses inputs with each other.
 
-  **Example**
-  Write a function called isMultiplied which accepts two arrays. This function should return true if every value in the array has a correspoding value that is multiplied by 2 in the second array given. The frequency of values must be the same.
+   **Example**
+   Write a function called isMultiplied which accepts two arrays. This function should return true if every value in the array has a correspoding value that is multiplied by 2 in the second array given. The frequency of values must be the same.
 
-  ```js
-  isMultiplied([1, 2, 3], [4, 2, 6]); //true
-  isMultiplied([1, 2, 3], [4, 9]); //false
-  isMultiplied([2, 2, 3], [6, 6, 4]); //false (frequency gone wrong)
-  ```
+```js
+isMultiplied([1, 2, 3], [4, 2, 6]); //true
+isMultiplied([1, 2, 3], [4, 9]); //false
+isMultiplied([2, 2, 3], [6, 6, 4]); //false (frequency gone wrong)
+```
 
-  First, true but not the least effective solution:
+First, true but not the least effective solution:
 
-  ```js
-  // First solution:
-  function isMultiplied => (arr1, arr2) = {
-    if (arr1.length !== arr2.length) {
+```js
+// First solution:
+function isMultiplied => (arr1, arr2) = {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    let correctIndex = arr2.indexOf(arr1[i] * 2);
+    if (correctIndex === -1) {
+      return false;
+    } else {
+      arr2.splice(correctIndex, 1)
+    }
+  }
+  return true;
+}
+```
+
+The first solution is an ineffective solution because it has O(n^2). Not just the for loop, but indexOf also loops inside the second array to find the correctIndex, so it has nested loops.
+
+Let's try it without the nested loops:
+
+```js
+// Second solution:
+function isMultiplied => (arr1, arr2) = {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+  for (let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+  }
+  for (let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+  }
+  for(let key in frequencyCounter1) {
+    if(!(key * 2) in frequencyCounter2) {
       return false;
     }
-    for (let i = 0; i < arr1.length; i++) {
-      let correctIndex = arr2.indexOf(arr1[i] * 2);
-      if (correctIndex === -1) {
-        return false;
-      } else {
-        arr2.splice(correctIndex, 1)
-      }
-    }
-    return true;
-  }
-  ```
-  The first solution is an ineffective solution because it has O(n^2). Not just the for loop, but indexOf also loops inside the second array to find the correctIndex, so it has nested loops.
-
-  Let's try it without the nested loops:
-
-  ```js
-  // Second solution:
-  function isMultiplied => (arr1, arr2) = {
-    if (arr1.length !== arr2.length) {
+    if (frequencyCounter2[key * 2] !== frequencyCounter1[key]) {
       return false;
     }
-    let frequencyCounter1 = {};
-    let frequencyCounter2 = {};
-    for (let val of arr1) {
-      frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
-    }
-    for (let val of arr2) {
-      frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
-    }
-    for(let key in frequencyCounter1) {
-      if(!(key * 2) in frequencyCounter2) {
-        return false;
-      }
-      if (frequencyCounter2[key * 2] !== frequencyCounter1[key]) {
-        return false;
-      }
-    }
-    return true;
   }
-  ```
+  return true;
+}
+```
 
-  The second solution is more effective than the first one, because it just has 3 subsequent loops (but not a nested one!) and has O(3n), which will simplify as O(n).
+The second solution is more effective than the first one, because it just has 3 subsequent loops (but not a nested one!) and has O(3n), which will simplify as O(n).
 
-  **Frequency Counter Exercise 1: Anagram**
+**Frequency Counter Exercise 1: Anagram**
 
-  Write a function that takes two strings to determine if the second string is an anagram of the first. (An anagram is a word, phrase or name formed by rearranging the letters of another. Example: 'cinema' and 'iceman' are anagrams.)
+Write a function that takes two strings to determine if the second string is an anagram of the first. (An anagram is a word, phrase or name formed by rearranging the letters of another. Example: 'cinema' and 'iceman' are anagrams.)
 
-  ```js
-  // Solution 1: (Has a time complexity of O(n))
-  function isAnagram(str1, str2) {
-    // determine if they have the same length, if not, return false.
-    if (str1.length !== str2.length) {
+```js
+// Solution 1: (Has a time complexity of O(n))
+function isAnagram1(str1, str2) {
+  // determine if they have the same length, if not, return false.
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  // make a frequency counter for str1
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+  for (let letter of str1) {
+    frequencyCounter1[letter] = (frequencyCounter1[letter] || 0) + 1;
+  }
+  // make a frequency counter for str2
+  for (let letter of str2) {
+    frequencyCounter2[letter] = (frequencyCounter2[letter] || 0) + 1;
+  }
+  // loop over frequencycounter1 to see if it has the same amount of every letter in frequencyCounter2, if not return false
+  for (let key in frequencyCounter1) {
+    if (!frequencyCounter2[key]) {
       return false;
     }
-    // make a frequency counter for str1
-    let frequencyCounter1 = {};
-    let frequencyCounter2 = {};
-    for (let letter of str1) {
-      frequencyCounter1[letter] = (frequencyCounter1[letter] || 0) + 1;
-    }
-    // make a frequency counter for str2
-    for (let letter of str2) {
-      frequencyCounter2[letter] = (frequencyCounter2[letter] || 0) + 1;
-    }
-    // loop over frequencycounter1 to see if it has the same amount of every letter in frequencyCounter2, if not return false
-    for (let key in frequencyCounter1) {
-      if(!frequencyCounter2[key]) {
-        return false;
-      }
-      if(frequencyCounter1[key] !== frequencyCounter2[key]) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  // Solution 2: (Also has a time complexity of O(n))
-  function isAnagram(str1, str2) {
-    // determine if they have the same length, if not, return false.
-    if (str1.length !== str2.length) {
+    if (frequencyCounter1[key] !== frequencyCounter2[key]) {
       return false;
     }
-    // make a frequency counter for str1
-    let frequencyCounter = {};
-    for (let letter of str1) {
-      frequencyCounter[letter] ? frequencyCounter[letter] += 1 : frequencyCounter[letter] = 1;
-    }
+  }
+  return true;
+}
 
-    // loop over str2, see if you can find all the letters in str2 as keys in frequencyCounter object. If it is there, subtract 1 from its value.
-    for (let key of str2) {
-      if(!frequencyCounter[key]) {
-        return false;
-      } else {
-        frequencyCounter[key] -= 1;
-      }
-    }
-    return true;
+// Solution 2: (Also has a time complexity of O(n))
+function isAnagram2(str1, str2) {
+  // determine if they have the same length, if not, return false.
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  // make a frequency counter for str1
+  let frequencyCounter = {};
+  for (let letter of str1) {
+    frequencyCounter[letter]
+      ? (frequencyCounter[letter] += 1)
+      : (frequencyCounter[letter] = 1);
   }
 
-  // Solution 3: 
-  // This time, we are going to think about edge cases and set some rules regarding those. 
-  function isAnagram(str1, str2) {
-    // All the special characters including spaces should be excluded from the string.
-    // Capital letters should be converted to lowercase.
-    let correctedStr1 = str1.replace(/[^\w]/g, "").toLowerCase();
-    let correctedStr2 = str2.replace(/[^\w]/g, "").toLowerCase();
-    // determine if they have the same length, if not, return false.
-    if (correctedStr1.length !== correctedStr2.length) {
+  // loop over str2, see if you can find all the letters in str2 as keys in frequencyCounter object. If it is there, subtract 1 from its value.
+  for (let key of str2) {
+    if (!frequencyCounter[key]) {
       return false;
+    } else {
+      frequencyCounter[key] -= 1;
     }
-    // make a frequency counter for str1
-    let frequencyCounter = {};
-    for (let letter of correctedStr1) {
-      frequencyCounter[letter] ? frequencyCounter[letter] += 1 : frequencyCounter[letter] = 1;
-    }
+  }
+  return true;
+}
 
-    // loop over str2, see if you can find all the letters in str2 as keys in frequencyCounter object. If it is there, subtract 1 from its value.
-    for (let key of correctedStr2) {
-      if(!frequencyCounter[key]) {
-        return false;
-      } else {
-        frequencyCounter[key] -= 1;
-      }
-    }
-    return true;
+// Solution 3:
+// This time, we are going to think about edge cases and set some rules regarding those.
+function isAnagram3(str1, str2) {
+  // All the special characters including spaces should be excluded from the string.
+  // Numbers should also be kept like letters.
+  // Capital letters should be converted to lowercase.
+  let correctedStr1 = str1.replace(/[^\w]/g, "").toLowerCase();
+  let correctedStr2 = str2.replace(/[^\w]/g, "").toLowerCase();
+  // determine if they have the same length, if not, return false.
+  if (correctedStr1.length !== correctedStr2.length) {
+    return false;
+  }
+  // make a frequency counter for str1
+  let frequencyCounter = {};
+  for (let letter of correctedStr1) {
+    frequencyCounter[letter]
+      ? (frequencyCounter[letter] += 1)
+      : (frequencyCounter[letter] = 1);
   }
 
-  ```
+  // loop over str2, see if you can find all the letters in str2 as keys in frequencyCounter object. If it is there, subtract 1 from its value.
+  for (let key of correctedStr2) {
+    if (!frequencyCounter[key]) {
+      return false;
+    } else {
+      frequencyCounter[key] -= 1;
+    }
+  }
+  return true;
+}
+```
 
-  **Frequency Counter Exercise 2: Anagram**
+**Frequency Counter Exercise 2: Anagram**
 
+## Resources:
 
- ## Resources:
-
- 1. "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_ 
- 2. "How to Solve It - A New Aspect of Mathematical Method" by _G. Polya_
+1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
+2.  "How to Solve It - A New Aspect of Mathematical Method" by _G. Polya_

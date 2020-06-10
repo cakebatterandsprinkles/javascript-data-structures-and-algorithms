@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/jasmine/bin/jasmine.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms.git"
   },
-  "author": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "cakebatterandsprinkles",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms/issues"
   },
   "homepage": "https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#readme",
   "devDependencies": {
-    "jasmine": "^3.5.0"
+    "jest": "^26.0.1"
   }
 }

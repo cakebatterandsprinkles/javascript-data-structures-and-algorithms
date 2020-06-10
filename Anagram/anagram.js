@@ -45,7 +45,6 @@ function isAnagram2(str1, str2) {
 function isAnagram3(str1, str2) {
   let correctedStr1 = str1.replace(/[^\w]/g, "").toLowerCase();
   let correctedStr2 = str2.replace(/[^\w]/g, "").toLowerCase();
-  console.log(correctedStr1, correctedStr2);
   if (correctedStr1.length !== correctedStr2.length) {
     return false;
   }
