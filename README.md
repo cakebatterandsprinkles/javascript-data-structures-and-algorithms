@@ -325,37 +325,45 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
 
 5. Refactor your solution
 
-There is rarely a single solution to a problem. - Can you talk about your code without any prroblems? - Can you get to the result differently? - Can you understand your code at a glance? - Can you use the result/method for solving another problem? - Can you improve the performance of your code? (You can identify poorly performing things, like nested loops, and try to avoid those.) - Can you think of other ways to make your code better? (If you are working for a company, does your code follow company guidelines? Does it follow the best practices of the language? Is the spacing consistent?) - How have other people solved this problem?
+There is rarely a single solution to a problem.
 
-    _What can we refactor in this code?_
-      - We can do a for-of loop to avoid working with i.
-      - Conditionals can be done in a single line.
-      - Although regular expressions are a good way of finding certain patterns (like a credit card number, phone number, addresses, url, etc.) in a given input, they have a disadvantage: the performance of regular expressions can vary depending on the browser you are using. So it might be a bit better to use ASCII codes. Point proven [here](https://jsperf.com/alphanumeric-charcode-vs-regexp).
+- Can you talk about your code without any problems?
+- Can you get to the result differently?
+- Can you understand your code at a glance?
+- Can you use the result/method for solving another problem?
+- Can you improve the performance of your code? (You can identify poorly performing things, like nested loops, and try to avoid those.) -
+- Can you think of other ways to make your code better? (If you are working for a company, does your code follow company guidelines? Does it follow the best practices of the language? Is the spacing consistent?)
+- How have other people solved this problem?
+
+  _What can we refactor in this code?_ - We can do a for-of loop to avoid working with i. - Conditionals can be done in a single line. - Although regular expressions are a good way of finding certain patterns (like a credit card number, phone number, addresses, url, etc.) in a given input, they have a disadvantage: the performance of regular expressions can vary depending on the browser you are using. So it might be a bit better to use ASCII codes. Point proven [here](https://jsperf.com/alphanumeric-charcode-vs-regexp).
 
       Example at the previous section refactored:
-    ```js
-      function charCount(str) {
-        var result = {};
-        for (let  char of str) {
-          if(isAlphaNumeric(char)){
-            char = char.toLowerCase();
-            result[char] = ++result[char] || 1;
-          }
-        }
-        return result;
-      }
 
-      function isAlphaNumeric(char) {
-          const code = char.charCodeAt(0);
-          if (!(code > 47 && code < 58) && // numeric (0-9)
-              !(code > 64 && code < 91) && // upper alpha (A-Z)
-              !(code > 96 && code < 123)) { // lower alpha (a-z)
-            return false;
-          }
-        return true;
+  ```js
+  function charCount(str) {
+    var result = {};
+    for (let char of str) {
+      if (isAlphaNumeric(char)) {
+        char = char.toLowerCase();
+        result[char] = ++result[char] || 1;
       }
+    }
+    return result;
+  }
 
-    ```
+  function isAlphaNumeric(char) {
+    const code = char.charCodeAt(0);
+    if (
+      !(code > 47 && code < 58) && // numeric (0-9)
+      !(code > 64 && code < 91) && // upper alpha (A-Z)
+      !(code > 96 && code < 123)
+    ) {
+      // lower alpha (a-z)
+      return false;
+    }
+    return true;
+  }
+  ```
 
 **_Problem Solving Patterns_**
 
@@ -483,7 +491,7 @@ function isAnagram2(str1, str2) {
   return true;
 }
 
-// Solution 3:
+// Solution 3: (Also has a time complexity of O(n))
 // This time, we are going to think about edge cases and set some rules regarding those.
 function isAnagram3(str1, str2) {
   // All the special characters including spaces should be excluded from the string.
@@ -512,6 +520,20 @@ function isAnagram3(str1, str2) {
     }
   }
   return true;
+}
+
+// Solution 4:
+// This time, we are going to use a helper function to get rid of the characters we don't intend to use and take a totally different approach.
+// This solution is less effective than solution 1 & 2 & 3, because it has a time complexity of O(n\*log(n)).
+function isAnagram4(str1, str2) {
+  return modifyString(str1) === modifyString(str2);
+}
+
+function modifyString(string) {
+  // All the special characters including spaces should be excluded from the string.
+  // Numbers should also be kept like letters.
+  // Capital letters should be converted to lowercase.
+  return string.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
 }
 ```
 

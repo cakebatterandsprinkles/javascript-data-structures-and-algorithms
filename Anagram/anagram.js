@@ -66,4 +66,12 @@ function isAnagram3(str1, str2) {
   return true;
 }
 
-module.exports = { isAnagram1, isAnagram2, isAnagram3 };
+function isAnagram4(str1, str2) {
+  return modifyString(str1) === modifyString(str2);
+}
+
+function modifyString(string) {
+  return string.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
+}
+
+module.exports = { isAnagram1, isAnagram2, isAnagram3, isAnagram4 };
