@@ -479,6 +479,34 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
     return true;
   }
 
+  // Solution 3: 
+  // This time, we are going to think about edge cases and set some rules regarding those. 
+  function isAnagram(str1, str2) {
+    // All the special characters including spaces should be excluded from the string.
+    // Capital letters should be converted to lowercase.
+    let correctedStr1 = str1.replace(/[^\w]/g, "").toLowerCase();
+    let correctedStr2 = str2.replace(/[^\w]/g, "").toLowerCase();
+    // determine if they have the same length, if not, return false.
+    if (correctedStr1.length !== correctedStr2.length) {
+      return false;
+    }
+    // make a frequency counter for str1
+    let frequencyCounter = {};
+    for (let letter of correctedStr1) {
+      frequencyCounter[letter] ? frequencyCounter[letter] += 1 : frequencyCounter[letter] = 1;
+    }
+
+    // loop over str2, see if you can find all the letters in str2 as keys in frequencyCounter object. If it is there, subtract 1 from its value.
+    for (let key of correctedStr2) {
+      if(!frequencyCounter[key]) {
+        return false;
+      } else {
+        frequencyCounter[key] -= 1;
+      }
+    }
+    return true;
+  }
+
   ```
 
   **Frequency Counter Exercise 2: Anagram**

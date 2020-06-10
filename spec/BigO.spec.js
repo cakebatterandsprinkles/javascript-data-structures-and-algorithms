@@ -2,7 +2,7 @@ const {
   addUpToV1,
   addUpToV2,
   calculateTime,
-} = require("../Big O Notation/BigO");
+} = require("../Big O Notation/bigO");
 
 describe("Add up numbers to the number given", () => {
   it("calculates that 1 + ... + n", () => {
@@ -23,8 +23,8 @@ describe("Calculates the execution time", () => {
     calculateTime(addUpToV2, 100);
     calculateTime(addUpToV1, 100);
 
-    V2time += calculateTime(addUpToV2, 100);
-    V1time += calculateTime(addUpToV1, 100);
+    V2time = calculateTime(addUpToV2, 100);
+    V1time = calculateTime(addUpToV1, 100);
 
     expect(V1time).toBeGreaterThan(V2time);
   });
