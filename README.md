@@ -614,8 +614,8 @@ function areThereDuplicates1(...args) {
 }
 
 // Solution 2: (Time complexity: O(n), Space complexity: O(n))
-function areThereDuplicates2() {
-  return new Set(arguments).size !== arguments.length;
+function areThereDuplicates2(...args) {
+  return new Set(args).size !== args.length;
 }
 ```
 
