@@ -596,7 +596,7 @@ Write a function that accepts an unknown number of arguments and checks whether 
 
 ```js
 // Solution 1: (Time complexity: O(n), Space complexity: O(n))
-function areThereDuplicates(...args) {
+function areThereDuplicates1(...args) {
   // Create a frequeny counter object
   let frequencyCounter = {};
   for (let arg of args) {

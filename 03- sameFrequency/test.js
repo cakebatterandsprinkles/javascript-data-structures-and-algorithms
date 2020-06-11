@@ -1,10 +1,10 @@
 const { isSameFrequency } = require("./sameFrequency");
 
-test("isSameFrequency1 functions exist", () => {
+test("isSameFrequency1 function exists", () => {
   expect(typeof isSameFrequency).toEqual("function");
 });
 
-test("Numbers in '12344' has the same frequency of numbers in '43412'", () => {
+test("'Numbers in '12344' has the same frequency of numbers in '43412''", () => {
   expect(isSameFrequency(12344, 43412)).toBeTruthy();
 });
 
