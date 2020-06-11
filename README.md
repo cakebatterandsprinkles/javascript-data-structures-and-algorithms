@@ -590,6 +590,30 @@ function createFrequencyCounter(str) {
 }
 ```
 
+**Frequency Counter Exercise 3: areThereDuplicates**
+
+Write a function that accepts an unknown number of arguments and checks whether there are any duplicates among the arguments that are passed.
+
+```js
+// Solution 1: (Time complexity: O(n), Space complexity: O(n))
+function areThereDuplicates(...args) {
+  // Create a frequeny counter object
+  let frequencyCounter = {};
+  for (let arg of args) {
+    frequencyCounter[arg] = (frequencyCounter[arg] || 0) + 1;
+  }
+
+  // Loop over the counter object to see if there are any values > 0.
+  for (let arg of args) {
+    if (frequencyCounter[arg] > 1) {
+      return true;
+    }
+  }
+
+  return false;
+}
+```
+
 ## Resources:
 
 1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
