@@ -15,4 +15,8 @@ function areThereDuplicates1(...args) {
   return false;
 }
 
-module.exports = { areThereDuplicates1 };
+function areThereDuplicates2(...args) {
+  return new Set(args).size !== args.length;
+}
+
+module.exports = { areThereDuplicates1, areThereDuplicates2 };
