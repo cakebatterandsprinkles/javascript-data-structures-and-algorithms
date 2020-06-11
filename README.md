@@ -619,6 +619,31 @@ function areThereDuplicates2(...args) {
 }
 ```
 
+2. **Multiple Pointers Pattern**
+
+This is very efficient for solving problems with minimal space complexity.
+Usually we are searching for something that meets a condition in a given input. Then we create two referance points, for example one at the end and one in the beginning and move them to the middle until we find what we are looking for.
+
+**Example**
+Write a function called findSumZero which accepts a _sorted_ array of integers. This function should find the _first_ pair where sum is 0, and return them inside an array. If the condition is not met, it should return undefined.
+
+```js
+// it should be like this:
+findSumZero([-2, -1, 0, 1, 2]); // [-2, 2]
+findSumZero([-4, 0, 1, 2, 3]); // undefined
+
+// Solution 1: (Time Complexity: O(n^2), Space Complexity: O(1))
+function findSumZero(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === 0) {
+        return [arr[i], arr[j]];
+      }
+    }
+  }
+}
+```
+
 ## Resources:
 
 1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
