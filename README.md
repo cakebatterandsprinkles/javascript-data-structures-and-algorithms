@@ -633,12 +633,30 @@ findSumZero([-2, -1, 0, 1, 2]); // [-2, 2]
 findSumZero([-4, 0, 1, 2, 3]); // undefined
 
 // Solution 1: (Time Complexity: O(n^2), Space Complexity: O(1))
-function findSumZero(arr) {
+// This is very inefficient due to the nested loops.
+function findSumZero1(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === 0) {
         return [arr[i], arr[j]];
       }
+    }
+  }
+}
+
+// Solution 2: (Time Complexity: O(n), Space Complexity: O(1))
+// This is the solution using multiple pointers pattern:
+function findSumZero2(arr) {
+  let start = 0;
+  let end = arr.length - 1;
+  while (start < end) {
+    let sum = arr[start] + arr[end];
+    if (sum === 0) {
+      return [arr[start] + arr[end]];
+    } else if (sum > 0) {
+      end--;
+    } else {
+      start++;
     }
   }
 }
