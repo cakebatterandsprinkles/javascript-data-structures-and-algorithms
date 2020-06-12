@@ -1,7 +1,10 @@
 # Javascript Data Structures And Algorithms
 
-This project will encapsulate my notes on Data Structures And Algorithms using JS.
-You can find the code snippets in their individual folders. For explanations, you can browse through the README.md file.
+This project encapsulates my notes on Data Structures And Algorithms using JS.
+
+You can find the code snippets and test files in their individual folders.
+
+For explanations, you can browse through the README.md file.
 The resources used can be found at the end of the README.md file.
 
 ## Big O Notation
@@ -260,6 +263,7 @@ An algorithm is a sequence of well-defined instructions to solve a specific prob
    - Explore examples with invalid inputs
 
      **Example**
+
      Task: Write a function which takes in a string and returns counts of each character in the string
 
    ```js
@@ -373,6 +377,7 @@ There is rarely a single solution to a problem.
    This is useful when you have multiple inputs for an algorithm and you are comparing theses inputs with each other.
 
    **Example**
+
    Write a function called isMultiplied which accepts two arrays. This function should return true if every value in the array has a correspoding value that is multiplied by 2 in the second array given. The frequency of values must be the same.
 
 ```js
@@ -625,6 +630,7 @@ This is very efficient for solving problems with minimal space complexity.
 Usually we are searching for something that meets a condition in a given input. Then we create two referance points, for example one at the end and one in the beginning and move them to the middle until we find what we are looking for.
 
 **Example**
+
 Write a function called findSumZero which accepts a _sorted_ array of integers. This function should find the _first_ pair where sum is 0, and return them inside an array. If the condition is not met, it should return undefined.
 
 ```js
