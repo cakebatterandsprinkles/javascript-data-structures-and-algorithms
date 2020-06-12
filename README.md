@@ -376,7 +376,7 @@ There is rarely a single solution to a problem.
    This pattern uses objects or sets to collect values/frequency of values to avoid nested loops or O(n^2) operations with arrays and strings.
    This is useful when you have multiple inputs for an algorithm and you are comparing theses inputs with each other.
 
-   **Example**
+   **Example: isMultiplied**
 
    Write a function called isMultiplied which accepts two arrays. This function should return true if every value in the array has a correspoding value that is multiplied by 2 in the second array given. The frequency of values must be the same.
 
@@ -629,7 +629,7 @@ function areThereDuplicates2(...args) {
 This is very efficient for solving problems with minimal space complexity.
 Usually we are searching for something that meets a condition in a given input. Then we create two referance points, for example one at the end and one in the beginning and move them to the middle until we find what we are looking for.
 
-**Example**
+**Example: findSumZero**
 
 Write a function called findSumZero which accepts a _sorted_ array of integers. This function should find the _first_ pair where sum is 0, and return them inside an array. If the condition is not met, it should return undefined.
 
@@ -665,6 +665,18 @@ function findSumZero2(arr) {
       start++;
     }
   }
+}
+```
+
+**Multiple Pointers Exercise 1: countUniqueValues**
+
+Write a function which accepts a _sorted_ array and return the number of unique values in that array. There can be negative numbers in the initial array.
+
+```js
+// Solution 1:
+
+function countUniqueValues(arr) {
+  return new Set(arr).size;
 }
 ```
 

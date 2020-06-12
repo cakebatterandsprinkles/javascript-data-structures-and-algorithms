@@ -1,5 +1,4 @@
-function countUniqueValues1() {
-  return 2;
+function countUniqueValues1(arr) {
+  return new Set(arr).size;
 }
-
 module.exports = { countUniqueValues1 };
