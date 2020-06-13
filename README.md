@@ -658,7 +658,7 @@ function findSumZero2(arr) {
   while (start < end) {
     let sum = arr[start] + arr[end];
     if (sum === 0) {
-      return [arr[start] + arr[end]];
+      return [arr[start], arr[end]];
     } else if (sum > 0) {
       end--;
     } else {

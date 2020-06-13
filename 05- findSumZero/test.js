@@ -6,8 +6,8 @@ test("findSumZero functions exist", () => {
 });
 
 test(" the first pair that has a sum of 0 in [-2, -1, 0, 1, 2] is [-2, 2]", () => {
-  expect(findSumZero1([-2, -1, 0, 1, 2].sort())).toEqual([-2, 2].sort());
-  expect(findSumZero2([-2, -1, 0, 1, 2].sort())).toEqual([-2, 2].sort());
+  expect(findSumZero1([-2, -1, 0, 1, 2])).toEqual([-2, 2]);
+  expect(findSumZero2([-2, -1, 0, 1, 2])).toEqual([-2, 2]);
 });
 
 test(" the first pair that has a sum of 0 in [-4, 0, 1, 2, 3] is undefined", () => {
