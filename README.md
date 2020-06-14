@@ -754,6 +754,10 @@ function isSubsequence1(str1, str2) {
   }
   return false;
 }
+
+// Solution 2:
+
+function isSubsequence2(str1, str2) {}
 ```
 
 ## Resources:
