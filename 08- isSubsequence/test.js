@@ -19,3 +19,7 @@ test("'cow' exist in the same order inside 'cottonflower'", () => {
 test("'abed' does not exist in the same order inside 'adeb'", () => {
   expect(isSubsequence1("abed", "adeb")).toBeFalsy();
 });
+
+test("'' exists in the same order inside 'jingleberry'", () => {
+  expect(isSubsequence1("", "jingleberry")).toBeTruthy();
+});

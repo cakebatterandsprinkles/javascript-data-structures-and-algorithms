@@ -740,6 +740,22 @@ function averagePair2(arr, num) {
 
 Write a function which accepts a two strings and determines whether the characters in the first string form a subsequence of characters in the second string. In other words, the function should check whether the first string appears anywhere inside the second string.
 
+```js
+// Solution 1:
+
+function isSubsequence1(str1, str2) {
+  let i = 0;
+  let j = 0;
+  if (!str1) return true;
+  while (j < str2.length) {
+    if (str2[j] === str1[i]) i++;
+    if (i === str1.length) return true;
+    j++;
+  }
+  return false;
+}
+```
+
 ## Resources:
 
 1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
