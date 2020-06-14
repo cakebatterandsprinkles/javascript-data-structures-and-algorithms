@@ -703,7 +703,7 @@ function countUniqueValues2(arr) {
 Write a function which accepts a _sorted_ array of integers and a target average and determine if there is a pair of values in the array where the average of the pair equals target average. There can be multiple pairs that match the target average.
 
 ```js
-// Solution 1:
+// Solution 1: (Time Complexity: O(n^2), Space Complexity: O(1))
 
 function averagePair1(arr, num) {
   // if arr.length === 0, return 0
@@ -717,6 +717,20 @@ function averagePair1(arr, num) {
       if ((arr[i] + arr[j]) / 2 === num) return true;
     }
     i++;
+  }
+  return false;
+}
+
+// Solution 2: (Time Complexity: O(n), Space Complexity: O(1))
+
+function averagePair2(arr, num) {
+  let start = 0;
+  let end = arr.length - 1;
+  while (start < end) {
+    let avg = (arr[start] + arr[end]) / 2;
+    if (avg === num) return true;
+    else if (avg < num) start++;
+    else end--;
   }
   return false;
 }
