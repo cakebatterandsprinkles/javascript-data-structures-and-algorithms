@@ -698,6 +698,10 @@ function countUniqueValues2(arr) {
 }
 ```
 
+**Multiple Pointers Exercise 2: averagePair**
+
+Write a function which accepts a _sorted_ array of integers and a target average and determine if there is a pair of values in the array where the average of the pair equals target average. There can be multiple pairs that match the target average.
+
 ## Resources:
 
 1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
