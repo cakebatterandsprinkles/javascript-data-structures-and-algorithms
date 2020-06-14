@@ -736,6 +736,10 @@ function averagePair2(arr, num) {
 }
 ```
 
+**Multiple Pointers Exercise 2: isSubsequence**
+
+Write a function which accepts a two strings and determines whether the characters in the first string form a subsequence of characters in the second string. In other words, the function should check whether the first string appears anywhere inside the second string.
+
 ## Resources:
 
 1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
