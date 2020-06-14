@@ -1,4 +1,4 @@
-const { averagePair1 } = require("./countUniqueValues");
+const { averagePair1 } = require("./averagePair");
 
 test("averagePair functions exist", () => {
   expect(typeof averagePair1).toEqual("function");
