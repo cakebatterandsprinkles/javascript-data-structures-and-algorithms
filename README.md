@@ -9,10 +9,19 @@ The resources used can be found at the end of the README.md file.
 
 ## Table of Contents
 
-====================
-
 - [Big O Notation](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#big-o-notation)
 - [Problem Solving: Approach And Patterns](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#problem-solving-approach-and-patterns)
+  - [Problem Solving Strategies](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#%E1%B4%97-problem-solving-strategies)
+  - [Problem Solving Patterns](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#problem-solving-patterns)
+    - [Frequency Counter Pattern](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#1-frequency-counter-pattern)
+      - [Anagram](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#frequency-counter-exercise-1-anagram)
+      - [isSameFrequency](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#frequency-counter-exercise-2-issamefrequency)
+      - [areThereDuplicates](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#frequency-counter-exercise-3-arethereduplicates)
+    - [Multiple Pointers Pattern](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#2-multiple-pointers-pattern)
+      - [findSumZero](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#example-findsumzero)
+      - [countUniqueValues](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#multiple-pointers-exercise-1-countuniquevalues)
+      - [averagePair](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#multiple-pointers-exercise-2-averagepair)
+      - [isSubsequence](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#multiple-pointers-exercise-2-issubsequence)
 
 ## Big O Notation
 
@@ -447,7 +456,7 @@ function isMultiplied => (arr1, arr2) = {
 
 The second solution is more effective than the first one, because it just has 3 subsequent loops (but not a nested one!) and has O(3n), which will simplify as O(n).
 
-##### **Frequency Counter Exercise 1: Anagram**
+#### **Frequency Counter Exercise 1: Anagram**
 
 Write a function that takes two strings to determine if the second string is an anagram of the first. (An anagram is a word, phrase or name formed by rearranging the letters of another. Example: 'cinema' and 'iceman' are anagrams.)
 
@@ -551,7 +560,7 @@ function modifyString(string) {
 }
 ```
 
-##### **Frequency Counter Exercise 2: isSameFrequency**
+#### **Frequency Counter Exercise 2: isSameFrequency**
 
 Write a function that compares two positive integers and finds out if the two numbers have the same frequency of digits.
 
@@ -604,7 +613,7 @@ function createFrequencyCounter(str) {
 }
 ```
 
-##### **Frequency Counter Exercise 3: areThereDuplicates**
+#### **Frequency Counter Exercise 3: areThereDuplicates**
 
 Write a function that accepts an unknown number of arguments and checks whether there are any duplicates among the arguments that are passed.
 
@@ -638,7 +647,7 @@ function areThereDuplicates2(...args) {
 This is very efficient for solving problems with minimal space complexity.
 Usually we are searching for something that meets a condition in a given input. Then we create two referance points, for example one at the end and one in the beginning and move them to the middle until we find what we are looking for.
 
-##### **Example: findSumZero**
+#### **Example: findSumZero**
 
 Write a function called findSumZero which accepts a _sorted_ array of integers. This function should find the _first_ pair where sum is 0, and return them inside an array. If the condition is not met, it should return undefined.
 
@@ -677,7 +686,7 @@ function findSumZero2(arr) {
 }
 ```
 
-##### **Multiple Pointers Exercise 1: countUniqueValues**
+#### **Multiple Pointers Exercise 1: countUniqueValues**
 
 Write a function which accepts a _sorted_ array and return the number of unique values in that array. There can be negative numbers in the initial array.
 
@@ -707,7 +716,7 @@ function countUniqueValues2(arr) {
 }
 ```
 
-##### **Multiple Pointers Exercise 2: averagePair**
+#### **Multiple Pointers Exercise 2: averagePair**
 
 Write a function which accepts a _sorted_ array of integers and a target average and determine if there is a pair of values in the array where the average of the pair equals target average. There can be multiple pairs that match the target average.
 
@@ -745,7 +754,7 @@ function averagePair2(arr, num) {
 }
 ```
 
-##### **Multiple Pointers Exercise 2: isSubsequence**
+#### **Multiple Pointers Exercise 2: isSubsequence**
 
 Write a function which accepts a two strings and determines whether the characters in the first string form a subsequence of characters in the second string. In other words, the function should check whether the first string appears anywhere inside the second string.
 
