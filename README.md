@@ -784,6 +784,14 @@ function isSubsequence2(str1, str2) {
 }
 ```
 
+#### 3. **Sliding Window Pattern**
+
+This pattern uses a window from one position to another. Depending on a certain condition, this window can get smaller or bigger. This is really useful when we have an array or a string and we're looking for a continuous subset of that data.
+
+#### **Example: maxSubarraySum**
+
+Write a function that takes an array of integers and a positive number (n) that calculates the maximum sum of n consecutive elements in the given array.
+
 ## Resources:
 
 1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
