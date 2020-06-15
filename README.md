@@ -7,13 +7,20 @@ You can find the code snippets and test files in their individual folders.
 For explanations, you can browse through the README.md file.
 The resources used can be found at the end of the README.md file.
 
+## Table of Contents
+
+====================
+
+- [Big O Notation](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#big-o-notation)
+- [Problem Solving: Approach And Patterns](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#problem-solving-approach-and-patterns)
+
 ## Big O Notation
 
-(•ᴗ•) **What is Big O Notation?**
+### (•ᴗ•) **What is Big O Notation?**
 
 Big O Notation is a convenient way to describe the performance or complexity of an algorithm. It describes how the runtime of an algorithm grows as the inputs grow.
 
-(•ᴗ•) **Why do we need something like this?**
+### (•ᴗ•) **Why do we need something like this?**
 
 Let's say, there are multiple valid solutions to a problem, and each of them uses a totally different approach. How do we decide which one is **better?**
 Simply put, this is what the Big O Notation is all about. It is a way of comparing code and its performance to other pieces of code.
@@ -22,7 +29,7 @@ Simply put, this is what the Big O Notation is all about. It is a way of compari
 - Useful for discussing trade-offs between different approaches.
 - Useful for debugging: helps you identify where your code is slowing down/crashing, or finding parts that are inefficient.
 
-(•ᴗ•) **But what does better mean?**
+### (•ᴗ•) **But what does better mean?**
 
 Faster?
 
@@ -80,7 +87,7 @@ Dissection of addUpToV2(n): We have 1 multiplication(\*), 1 addition(+) and 1 di
 Dissection of addUpToV1(n): We have n additions(+) and n assignments(=) coming from "total += i" and another set of n additions(+) and n assignments(=) coming from the for loop. Inside for loop, we are also making n comparisons in the "i <= n" line. Addition to that, we are assigning a value to a variable in "let total = 0;" and "let i = 1" parts, so there is 2 more operations. -> Total: 5n+2 operations.
 (Total number of operations is directly proportional to n, so if n is 1, the total number of operations will be 7, if n is a billion, it will be 5 billion + 2.)
 
-(•ᴗ•) **Simplifying Big O, The Rule**
+### (•ᴗ•) **Simplifying Big O, The Rule**
 
 **_Constants don't matter:_**
 O(2n) will simplify to O(n).
@@ -94,7 +101,7 @@ O(500) will simplify to O(1) -> O(1) means constant runtime!
 - _Accessing elements in an array(by index) or object(by key) is constant!_
 - _In a loop, the complexity is the length of the loop **times** the complexity of whatever happens inside of that loop!_
 
-(•ᴗ•) **Summing up Big O**
+### (•ᴗ•) **Summing up Big O**
 
 Big O notation can give us an understanding of the time and space complexity of an algorithm.
 Big O doesn't care about precision, it cares about general trends.
@@ -117,6 +124,8 @@ addUpToV1(n) described at the previous part has 5n+2 operations => it has a big 
 
 **_Note:_** The smaller, the better!
 
+### Space And Time Complexity
+
 _Comparing Running Time Complexity in terms of Big O (O(f(n))):_
 From best to worse: O(1) (_best!_ )-> O(logn) (_good!_ ) -> O(n) (_fair!_ ) -> O(nlogn) (_bad!_ ) -> O(n^c) -> O(c^n) -> O(n!) (_worst!_ )
 
@@ -128,7 +137,7 @@ How does the runtime of an algorithm changes as the size of its input increases?
 
 How much additional memory do we need to allocate to run our algorithm?
 
-_Auxiliary Space Complexity_: Refers to the space required by the algorithm, not including space taken up by inputs. This will be the term you will read about in the following text.
+_Auxiliary Space Complexity_: Refers to the space required by the algorithm, not including space taken up by inputs. This will be the term we will be referring to when we say space complexity in the following text.
 
 **_Space Complexity, The Rules_**
 
@@ -217,7 +226,7 @@ Big O's of array methods:
 
 ## Problem Solving: Approach and Patterns
 
-(•ᴗ•) **Problem Solving Strategies**
+### (•ᴗ•) **Problem Solving Strategies**
 
 **_What is an algorithm?_**
 
@@ -369,16 +378,16 @@ There is rarely a single solution to a problem.
   }
   ```
 
-**_Problem Solving Patterns_**
+### **_Problem Solving Patterns_**
 
-1. **Frequency Counter Pattern**
+#### 1. **Frequency Counter Pattern**
 
-   This pattern uses objects or sets to collect values/frequency of values to avoid nested loops or O(n^2) operations with arrays and strings.
-   This is useful when you have multiple inputs for an algorithm and you are comparing theses inputs with each other.
+This pattern uses objects or sets to collect values/frequency of values to avoid nested loops or O(n^2) operations with arrays and strings.
+This is useful when you have multiple inputs for an algorithm and you are comparing theses inputs with each other.
 
-   **Example: isMultiplied**
+**Example: isMultiplied**
 
-   Write a function called isMultiplied which accepts two arrays. This function should return true if every value in the array has a correspoding value that is multiplied by 2 in the second array given. The frequency of values must be the same.
+Write a function called isMultiplied which accepts two arrays. This function should return true if every value in the array has a correspoding value that is multiplied by 2 in the second array given. The frequency of values must be the same.
 
 ```js
 isMultiplied([1, 2, 3], [4, 2, 6]); //true
@@ -438,7 +447,7 @@ function isMultiplied => (arr1, arr2) = {
 
 The second solution is more effective than the first one, because it just has 3 subsequent loops (but not a nested one!) and has O(3n), which will simplify as O(n).
 
-**Frequency Counter Exercise 1: Anagram**
+##### **Frequency Counter Exercise 1: Anagram**
 
 Write a function that takes two strings to determine if the second string is an anagram of the first. (An anagram is a word, phrase or name formed by rearranging the letters of another. Example: 'cinema' and 'iceman' are anagrams.)
 
@@ -542,7 +551,7 @@ function modifyString(string) {
 }
 ```
 
-**Frequency Counter Exercise 2: isSameFrequency**
+##### **Frequency Counter Exercise 2: isSameFrequency**
 
 Write a function that compares two positive integers and finds out if the two numbers have the same frequency of digits.
 
@@ -595,7 +604,7 @@ function createFrequencyCounter(str) {
 }
 ```
 
-**Frequency Counter Exercise 3: areThereDuplicates**
+##### **Frequency Counter Exercise 3: areThereDuplicates**
 
 Write a function that accepts an unknown number of arguments and checks whether there are any duplicates among the arguments that are passed.
 
@@ -624,12 +633,12 @@ function areThereDuplicates2(...args) {
 }
 ```
 
-2. **Multiple Pointers Pattern**
+#### 2. **Multiple Pointers Pattern**
 
 This is very efficient for solving problems with minimal space complexity.
 Usually we are searching for something that meets a condition in a given input. Then we create two referance points, for example one at the end and one in the beginning and move them to the middle until we find what we are looking for.
 
-**Example: findSumZero**
+##### **Example: findSumZero**
 
 Write a function called findSumZero which accepts a _sorted_ array of integers. This function should find the _first_ pair where sum is 0, and return them inside an array. If the condition is not met, it should return undefined.
 
@@ -668,7 +677,7 @@ function findSumZero2(arr) {
 }
 ```
 
-**Multiple Pointers Exercise 1: countUniqueValues**
+##### **Multiple Pointers Exercise 1: countUniqueValues**
 
 Write a function which accepts a _sorted_ array and return the number of unique values in that array. There can be negative numbers in the initial array.
 
@@ -698,7 +707,7 @@ function countUniqueValues2(arr) {
 }
 ```
 
-**Multiple Pointers Exercise 2: averagePair**
+##### **Multiple Pointers Exercise 2: averagePair**
 
 Write a function which accepts a _sorted_ array of integers and a target average and determine if there is a pair of values in the array where the average of the pair equals target average. There can be multiple pairs that match the target average.
 
@@ -736,7 +745,7 @@ function averagePair2(arr, num) {
 }
 ```
 
-**Multiple Pointers Exercise 2: isSubsequence**
+##### **Multiple Pointers Exercise 2: isSubsequence**
 
 Write a function which accepts a two strings and determines whether the characters in the first string form a subsequence of characters in the second string. In other words, the function should check whether the first string appears anywhere inside the second string.
 
