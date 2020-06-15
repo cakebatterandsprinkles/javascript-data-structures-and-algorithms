@@ -22,6 +22,7 @@ The resources used can be found at the end of the README.md file.
       - [countUniqueValues](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#multiple-pointers-exercise-1-countuniquevalues)
       - [averagePair](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#multiple-pointers-exercise-2-averagepair)
       - [isSubsequence](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#multiple-pointers-exercise-2-issubsequence)
+- [Resources](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#resources)
 
 ## Big O Notation
 
@@ -775,7 +776,12 @@ function isSubsequence1(str1, str2) {
 
 // Solution 2:
 
-function isSubsequence2(str1, str2) {}
+function isSubsequence2(str1, str2) {
+  if (str1.length === 0) return true;
+  if (str2.length === 0) return false;
+  if (str2[0] === str1[0]) return isSubsequence(str1.slice(1), str2.slice(1));
+  return isSubsequence(str1, str2.slice(1));
+}
 ```
 
 ## Resources:
