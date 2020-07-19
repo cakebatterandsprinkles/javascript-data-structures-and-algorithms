@@ -12,6 +12,7 @@ The resources used can be found at the end of the README.md file.
 - [Big O Notation](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#big-o-notation)
   - [What is Big O Notation?](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#what-is-big-o-notation)
   - [Big O Complexities of some algorithms & data structures](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#big-o-complexities-of-some-algorithms-data-structures)
+  - [Space and Time Compexity](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#space-and-time-complexity)
 - [Problem Solving: Approach And Patterns](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#problem-solving-approach-and-patterns)
   - [Problem Solving Strategies](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#%E1%B4%97-problem-solving-strategies)
   - [Problem Solving Patterns](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#problem-solving-patterns)
@@ -181,6 +182,16 @@ The big O time complexity: **Linearithmic (O(n log n))**
 ![Big O notation chart](./images/bigOchart.png)
 _Big O Time Complexity Graph. Credit: Huang, D. (2018, January 1). Javascript — Algorithm_
 
+Other than the complexities explained here, there are 2 more:
+
+1. Polynomial: O(n^k)
+
+Time taken is proportional to the amount of data raised to the power of a constant. (n: data size, k: constant)
+
+2. Exponential: O(k^n)
+
+Time taken is proportional to a constant raised to the power of the amount of data. (n: data size, k: constant)
+
 ### (•ᴗ•) Simplifying Big O, The Rule
 
 **_Constants don't matter:_**
@@ -220,12 +231,14 @@ addUpToV1(n) described at the previous part has 5n+2 operations => it has a big 
 
 ### Space And Time Complexity
 
-_Comparing Running Time Complexity in terms of Big O (O(f(n))):_
-From best to worse: O(1) (_best!_ )-> O(logn) (_good!_ ) -> O(n) (_fair!_ ) -> O(nlogn) (_bad!_ ) -> O(n^c) -> O(c^n) -> O(n!) (_worst!_ )
+We can use the Big O notation to describe the time or spca complexity of an algorithm.
 
 **_Time Complexity_**
 
-How does the runtime of an algorithm changes as the size of its input increases?
+Answers this question: How does the runtime of an algorithm changes as the size of its input increases?
+
+_Comparing Running Time Complexity in terms of Big O (O(f(n))):_
+From best to worse: O(1) (_best!_ )-> O(logn) (_good!_ ) -> O(n) (_fair!_ ) -> O(nlogn) (_bad!_ ) -> O(n^c) -> O(c^n) -> O(n!) (_worst!_ )
 
 **_Space Complexity_** (Space = memory)
 
