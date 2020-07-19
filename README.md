@@ -10,6 +10,8 @@ The resources used can be found at the end of the README.md file.
 ## Table of Contents
 
 - [Big O Notation](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#big-o-notation)
+  - [What is Big O Notation?](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#what-is-big-o-notation)
+  - [Big O Complexities of some algorithms & data structures](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#big-o-complexities-of-some-algorithms-data-structures)
 - [Problem Solving: Approach And Patterns](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#problem-solving-approach-and-patterns)
   - [Problem Solving Strategies](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#%E1%B4%97-problem-solving-strategies)
   - [Problem Solving Patterns](https://github.com/cakebatterandsprinkles/javascript-data-structures-and-algorithms#problem-solving-patterns)
@@ -26,11 +28,21 @@ The resources used can be found at the end of the README.md file.
 
 ## Big O Notation
 
-### (•ᴗ•) **What is Big O Notation?**
+### (•ᴗ•) What is Big O Notation?
 
-Big O Notation is a convenient way to describe the performance or complexity of an algorithm. It describes how the runtime of an algorithm grows as the inputs grow.
+We can describe the efficiency of an algorithm in terms of:
 
-### (•ᴗ•) **Why do we need something like this?**
+1. The time it takes to do the work
+2. The amount of memory it uses
+3. The amount of secondary storage space it needs
+
+The performance of a program also depends on the capabilities of the computer it is running on.
+
+Big O Notation describes how the time taken, or the memory used by a program scales with the amount of data it has to work on. (Common sense tells us that a problem takes longer when there is more data to work on. But it is not necessarily true.)
+
+Big O describes the 'complexity' of a program.
+
+### (•ᴗ•) Why do we need something like this?
 
 Let's say, there are multiple valid solutions to a problem, and each of them uses a totally different approach. How do we decide which one is **better?**
 Simply put, this is what the Big O Notation is all about. It is a way of comparing code and its performance to other pieces of code.
@@ -39,7 +51,7 @@ Simply put, this is what the Big O Notation is all about. It is a way of compari
 - Useful for discussing trade-offs between different approaches.
 - Useful for debugging: helps you identify where your code is slowing down/crashing, or finding parts that are inefficient.
 
-### (•ᴗ•) **But what does better mean?**
+### (•ᴗ•) But what does better mean?
 
 Faster?
 
@@ -97,7 +109,79 @@ Dissection of addUpToV2(n): We have 1 multiplication(\*), 1 addition(+) and 1 di
 Dissection of addUpToV1(n): We have n additions(+) and n assignments(=) coming from "total += i" and another set of n additions(+) and n assignments(=) coming from the for loop. Inside for loop, we are also making n comparisons in the "i <= n" line. Addition to that, we are assigning a value to a variable in "let total = 0;" and "let i = 1" parts, so there is 2 more operations. -> Total: 5n+2 operations.
 (Total number of operations is directly proportional to n, so if n is 1, the total number of operations will be 7, if n is a billion, it will be 5 billion + 2.)
 
-### (•ᴗ•) **Simplifying Big O, The Rule**
+### (•ᴗ•) Big O Complexities of some algorithms & data structures
+
+1. **Linear Search (sequential search)**
+
+- An unordered list is searched for a particular value and each value on the list is compared to a target value.
+- This is a brute-force approach and is usually implemented with a simple loop.
+- There is a nice and simple relationship between the amount of data and the time it is going to take.
+
+_The time taken is directly proportional to the amount of data._ For n data items, the time taken is equal to some constant multiplied by n. The constant itself will depend on the capabilities of the computer it is running on.
+
+The big O time complexity: **Linear (O(n))**
+
+2. **Stack**
+
+- In a stack data structure, items are pushed onto and popped off the top of a stack.
+- A stack might include a peak operation, which looks at the top item without removing it.
+- A stack is also known as _Last In First Out (LIFO)_ data structure.
+- Usually implemented with an array and a pointer to the top item.
+- It takes a certain amount of time to push an item to the top of the stack. If we double the amount of data, it takes exactly the same amount of time. Removing an item from the top of the stack also take a certain amount of time. Removing an item from the top of a stack is independent from the amount of data it holds.
+
+The big O time complexity: **Constant (O(1))**
+
+3. **Bubble Sort**
+
+Before we talk about this, lets briefly review a mathematical principle called **"dominant term"** in an expression.
+
+An algorithm working on a data structure of size n might take 5n³ + n² + 2n + 6 steps. The larger n becomes, the less significant the other numbers become. So here, the biggest game changer is 5n³, so we ignore everything except that. We can also ignore constants, constants are still very unimportant next to n³. So the big O time complexity of this algorithm is **Cubic (O(n³))**.
+
+- Bubble sort sorts a list of items into numeric or alphabetical order. It scans a list and compares values and swaps their orders if necessary. For n items, the list has to be scanned n-1 times.
+- If you double the amount of data, it will take more than twice as long time. Doubling the amount of data actually quadruples the time taken. If we triple the amount of data, we increase the time taken by a factor of nine.
+- For n data items, a simple implementation performs (n-1) x (n-1) operations. This can be written n² - 2n + 1, and the dominant term is n².
+
+The big O time complexity: **Quadratic (O(n²))**
+
+**Enhanced Bubble Sort**
+
+In a normal bubble sort algorithm, the largest number will be in correct position after the first pass. If the inner loop ignores the correctly positioned items, it can get shortened with every pass.
+
+For this bubble sort algorithm, the number of operations that are going to be performed will be: (n-1) + (n-2) + (n-3) + ... + 3 + 2 + 1. This can be shown as (n² - n)/2. This reduces the time taken by 50%, but the dominant term is still n². So even it is enhanced, it still has quadratic (O(n²)) complexity.
+
+**Alternative Enhanced Bubble Sort**
+
+If the inner loop is no longer performing any swaps, the data must be in correct order. So you could check for swaps with a boolean variable, and we can force exit the sorting algorithm when there is no more swaps to do.
+
+Best case, data is already sorted and the inner loop only runs once. So the best case has linear complexity (O(n)). Worst case, data is in reverse order and every item has to be swapped. The worst case scenerio has quadratic complexity (O(n²)). In big O, we are always interested in the worst scenerio.
+
+Before we move on, let's discuss another important mathematical concept: logarithms.
+
+**Logarithms**
+
+Logarithms were discovered by a mathematician named John Napier in the 1500's. Just like the substraction is the inverse of addition, or division is the reverse of multiplication, logarithms are the inverse of exponentiation.
+
+log₂(8) = 3 (base 2 log of 8 is equal to 3) -----> 2³ = 8 (2 to the power of 3 is 8. 2 is the base, 3 is the exponent.)
+log₂(value) = exponent -----> 2^exponent = value
+
+The base can be any number, but in computer science we generally work with base 2 logs.
+
+4. **Binary Search**
+
+A binary search is used to search an ordered list for a particular value. It has a divide and conquer approach. Target value is compared with the middle value, then half of the list is discarded until the target is found. This method is very efficient for large, sorted lists. This is also a recursive approach, because we are repeatedly solving smaller and smaller versions of the same problem.
+
+The big O time complexity: **Logarithmic (O(log n))**
+
+5. **Merge Sort**
+
+Sorts the data in a list. It has a divide and conquer approach. Works by splitting each list into sublists, each of them containing 1 item, therefore each sublist is sorted. It merges the sublists by 2, again sorting as it merges. At the end, it results with a single sorted list.
+
+The big O time complexity: **Linearithmic (O(n log n))**
+
+![Big O notation chart](./images/bigOchart.png)
+_Big O Time Complexity Graph. Credit: Huang, D. (2018, January 1). Javascript — Algorithm_
+
+### (•ᴗ•) Simplifying Big O, The Rule
 
 **_Constants don't matter:_**
 O(2n) will simplify to O(n).
@@ -111,7 +195,7 @@ O(500) will simplify to O(1) -> O(1) means constant runtime!
 - _Accessing elements in an array(by index) or object(by key) is constant!_
 - _In a loop, the complexity is the length of the loop **times** the complexity of whatever happens inside of that loop!_
 
-### (•ᴗ•) **Summing up Big O**
+### (•ᴗ•) Summing up Big O
 
 Big O notation can give us an understanding of the time and space complexity of an algorithm.
 Big O doesn't care about precision, it cares about general trends.
@@ -187,13 +271,6 @@ function double(arr) {
 
 In this example as the input length approaches infinity, the length of the array will be increasing directly proportionate to the length of the given array.
 This means the big O for space complexity for this algorithm is O(n).
-
-**_What is a logarithm? A very very basic explanation:_**
-
-Simply put, a logarithm is the inverse of exponentiation.
-
-log2(8) = 3 -----> 2^3 = 8
-log2(value) = exponent -----> 2^exponent = value
 
 (•ᴗ•) **Analyzing Performance of Arrays and Objects**
 
@@ -792,7 +869,12 @@ This pattern uses a window from one position to another. Depending on a certain 
 
 Write a function that takes an array of integers and a positive number (n) that calculates the maximum sum of n consecutive elements in the given array.
 
+```js
+function maxSubarraySum(arr, num) {}
+```
+
 ## Resources:
 
 1.  "JavaScript Algorithms and Data Structures Masterclass" on Udemy by _Colt Steele_
 2.  "How to Solve It - A New Aspect of Mathematical Method" by _G. Polya_
+3.  "Computer Science" channel by [Kevin Drumm](https://www.youtube.com/c/KevinDrumm/videos)
